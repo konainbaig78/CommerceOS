@@ -8,7 +8,7 @@ import {
 import { Header } from "./components/layout/Header";
 import { MobileNav } from "./components/layout/MobileNav";
 import { Sidebar } from "./components/layout/Sidebar";
-
+import TestAPI from "./pages/TestAPI";
 import AICopilot from "./pages/AICopilot";
 import Analytics from "./pages/Analytics";
 import Customers from "./pages/Customers";
@@ -49,6 +49,7 @@ function App() {
         >
           <div className="mx-auto max-w-[1600px] p-4 pb-24 sm:p-6 lg:p-8 lg:pb-8">
             <Routes>
+              <Route path="/test-api" element={<TestAPI />} />
               <Route path="/" element={<Dashboard />} />
               <Route path="/customers" element={<Customers />} />
               <Route path="/products" element={<Products />} />

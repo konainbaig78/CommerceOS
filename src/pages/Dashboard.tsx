@@ -7,6 +7,7 @@ import { RevenueChart } from "../components/dashboard/RevenueChart";
 import { StatCard } from "../components/dashboard/StatCard";
 import { TopProducts } from "../components/dashboard/TopProducts";
 
+
 export default function Dashboard() {
   return (
     <div className="space-y-6">
