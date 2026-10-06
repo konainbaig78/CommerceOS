@@ -3,6 +3,7 @@ import {
   Bot,
   Sparkles,
 } from "lucide-react";
+
 import { Card } from "../ui/Card";
 
 export function AIInsight() {
@@ -21,8 +22,9 @@ export function AIInsight() {
               <p className="text-sm font-semibold text-slate-900 dark:text-white">
                 AI Insight
               </p>
+
               <p className="text-[11px] text-slate-400">
-                Just now
+                Demo insight
               </p>
             </div>
           </div>
@@ -34,22 +36,23 @@ export function AIInsight() {
         </div>
 
         <h4 className="mt-6 text-base font-semibold text-slate-900 dark:text-white">
-          Weekend sales are outperforming expectations.
+          Your AI insights will appear here.
         </h4>
 
         <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
-          Revenue increased 18.4% over the weekend,
-          mainly driven by Electronics and returning
-          customers.
+          CommerceOS will analyze your store activity
+          and surface useful opportunities,
+          warnings, and recommendations.
         </p>
 
         <div className="mt-5 flex items-center justify-between rounded-xl bg-slate-50 p-3 dark:bg-white/[0.03]">
           <div>
             <p className="text-xs text-slate-400">
-              Recommended action
+              Next step
             </p>
+
             <p className="mt-1 text-sm font-medium text-slate-800 dark:text-slate-200">
-              Increase weekend campaign budget
+              Connect AI insights
             </p>
           </div>
 

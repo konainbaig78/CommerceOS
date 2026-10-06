@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
-import type { ThemeMode } from "../types/index.ts";
+import type { ThemeMode } from "../types";
 
 const THEME_KEY = "commerceos-theme";
+
+function getSystemTheme(): "light" | "dark" {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+}
 
 export function useTheme() {
   const [theme, setTheme] = useState<ThemeMode>(() => {
@@ -25,11 +31,12 @@ export function useTheme() {
     );
 
     const applyTheme = () => {
-      const shouldUseDark =
-        theme === "dark" ||
-        (theme === "system" && mediaQuery.matches);
+      const resolvedTheme =
+        theme === "system"
+          ? getSystemTheme()
+          : theme;
 
-      root.classList.toggle("dark", shouldUseDark);
+      root.classList.toggle("dark", resolvedTheme === "dark");
     };
 
     applyTheme();
@@ -40,10 +47,7 @@ export function useTheme() {
       mediaQuery.addEventListener("change", applyTheme);
 
       return () => {
-        mediaQuery.removeEventListener(
-          "change",
-          applyTheme,
-        );
+        mediaQuery.removeEventListener("change", applyTheme);
       };
     }
   }, [theme]);

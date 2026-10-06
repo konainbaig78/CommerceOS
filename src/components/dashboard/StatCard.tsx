@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 
 import type { Stat } from "../../types";
+
 import { Card } from "../ui/Card";
 
 interface StatCardProps {
@@ -16,11 +17,11 @@ export function StatCard({
   stat,
   index,
 }: StatCardProps) {
-  const isPositive = stat.trend === "up";
+  const isPositive =
+    stat.trend === "up";
 
   return (
     <Card className="group p-5 transition duration-300 hover:-translate-y-0.5 hover:border-cyan-400/20">
-      {/* Top */}
       <div className="flex items-start justify-between">
         <div>
           <p className="text-xs font-medium text-slate-400">
@@ -37,7 +38,6 @@ export function StatCard({
         </div>
       </div>
 
-      {/* Change */}
       <div className="mt-5 flex items-center gap-1 text-xs">
         {isPositive ? (
           <ArrowUpRight
@@ -62,16 +62,18 @@ export function StatCard({
         </span>
 
         <span className="text-slate-400">
-          vs last month
+          vs previous period
         </span>
       </div>
 
-      {/* Progress indicator */}
       <div className="mt-4 h-1 overflow-hidden rounded-full bg-slate-100 dark:bg-white/[0.04]">
         <div
           className="h-full rounded-full bg-cyan-400/60"
           style={{
-            width: `${Math.min(65 + index * 7, 100)}%`,
+            width: `${Math.min(
+              65 + index * 7,
+              100,
+            )}%`,
           }}
         />
       </div>

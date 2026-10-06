@@ -1,6 +1,11 @@
-export type CustomerStatus = "Active" | "Inactive";
+export type ThemeMode =
+  | "light"
+  | "dark"
+  | "system";
 
-export type ThemeMode = "light" | "dark" | "system";
+export type CustomerStatus =
+  | "Active"
+  | "Inactive";
 
 export type OrderStatus =
   | "Completed"
@@ -12,6 +17,10 @@ export type AIInsightType =
   | "opportunity"
   | "warning"
   | "insight";
+
+/* =========================================================
+   GENERAL / DUMMY DATA TYPES
+========================================================= */
 
 export interface Stat {
   title: string;
@@ -71,4 +80,54 @@ export interface AIInsight {
   type: AIInsightType;
   title: string;
   description: string;
+}
+
+/* =========================================================
+   DASHBOARD API TYPES
+========================================================= */
+
+export interface DashboardMetric {
+  value: number;
+  previousValue: number;
+  changePercent: number | null;
+}
+
+export interface DashboardSummary {
+  totalRevenue: DashboardMetric;
+  totalOrders: DashboardMetric;
+  totalCustomers: DashboardMetric;
+  conversionRate: DashboardMetric;
+  averageOrderValue: DashboardMetric;
+  newCustomers: DashboardMetric;
+}
+
+export interface DashboardRevenuePoint {
+  date: string;
+  revenue: number;
+  orders: number;
+  averageOrderValue: number;
+}
+
+export interface DashboardOrderPoint {
+  date: string;
+  orders: number;
+  completed: number;
+  cancelled: number;
+}
+
+export interface DashboardTopProduct {
+  id: string;
+  name: string;
+  category: string;
+  revenue: number;
+  unitsSold: number;
+}
+
+export interface DashboardRecentOrder {
+  id: string;
+  orderNumber: string;
+  customer: string;
+  total: number;
+  status: string;
+  orderedAt: string;
 }
